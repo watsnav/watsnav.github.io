@@ -26,7 +26,7 @@ void DBManager::closeConnection() {
 	if(conn!=nullptr) delete conn;
 }
 
-void DBManager::exeQuery(std::string qry) {
+void DBManager::exeQuery(std::string& qry, std::vector<std::string>& headers) {
 	//if(makeConnection()==0 && conn!=nullptr) {
 	if(conn!=nullptr) {
 		try {
@@ -34,7 +34,13 @@ void DBManager::exeQuery(std::string qry) {
 			pqxx::result res(N.exec(qry.c_str()));
 			std::cout << "Executing Query..\n";
 			for(pqxx::result::const_iterator it = res.begin(); it != res.end(); ++it) {
-				std::cout << "Qoute: " << it[0].as<std::string>() << "\n";
+				int i = 0;
+				std::cout << "{";
+				for(std::vector<std::string>::iterator it2 = headers.begin(); it2 != headers.end(); ++i) {
+					std::cout << *it2 << ":" << "\"" << it[i].as<std::string>() << "\"";
+					if(++it2!=headers.end()) std::cout << ", ";
+				}
+				std::cout << "}\n";
 			}
 			std::cout << "Query Done!\n";
 		}
@@ -46,4 +52,5 @@ void DBManager::exeQuery(std::string qry) {
 		std::cout << "Query not executed, not connected to database.\n";
 	}
 }
+
 

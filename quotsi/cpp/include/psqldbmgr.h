@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 #include <pqxx/pqxx>
 
 #define SHOWPSQLERROR { \
@@ -19,5 +20,5 @@ class DBManager {
 		~DBManager();
 		int makeConnection();
 		void closeConnection();
-		void exeQuery(std::string qry);
+		void exeQuery(std::string& qry, std::vector<std::string>& headers);
 };
