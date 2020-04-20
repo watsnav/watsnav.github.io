@@ -10,10 +10,12 @@ LFLAGS=-L$(LDIR)
 
 LIBS=-lpqxx -lpq
 
-_DEPS = psqldbmgr.h
+_DEPS = $(wildcard $(IDIR1)/*.h)
 DEPS = $(patsubst %,$(IDIR1)/%,$(_DEPS))
 
-_OBJ = psqldbmgr.o main.o 
+SRCS=$(wildcard *.cpp)
+
+_OBJ = $(patsubst %.cpp, %.o, $(SRCS))
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 SRCS=$(wildcard *.cpp)

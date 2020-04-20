@@ -20,5 +20,5 @@ class DBManager {
 		~DBManager();
 		int makeConnection();
 		void closeConnection();
-		void exeQuery(std::string& qry, std::vector<std::string>& headers);
+		unsigned long exeQuery(std::string& qry, std::vector<std::string>& headers, std::string *result);
 };
