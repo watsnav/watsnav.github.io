@@ -7,13 +7,14 @@ function check_connectivity() {
 	#echo "Permission Denied"
 	#exit 1
 #fi
-check_connectivity
-if [ $? -eq 0 ]; then 
-	if [ -d /run/postgresql ]; then
-		./updateqotd.sh
-	else
+if check_connectivity; then
+	if ls /run/postgresql > /dev/null 2>&1; then
 		mkdir /run/postgresql && chown -R 1000:1000 /run/postgresql
 		./updateqotd.sh -s
+	elif ls /run/postgresql/*lock* > /dev/null 2>&1; then
+		./updateqotd.sh -s
+	else
+		./updateqotd.sh
 	fi
 else
 	exit 1
