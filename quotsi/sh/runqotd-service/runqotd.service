@@ -1,6 +1,12 @@
 [Unit]
 Description=Run qotd
+DefaultDependencies=no
+Before=shutdown.target
 
 [Service]
 ExecStart=/home/watsnav/scripts/www/watsnav.github.io/quotsi/sh/runqotd.sh
+#User=watsnav
+TimeoutStartSec=0
 
+[Install]
+WantedBy=shutdown.target
