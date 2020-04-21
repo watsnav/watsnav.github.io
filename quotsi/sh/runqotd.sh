@@ -1,25 +1,21 @@
 #!/bin/bash
-function update_qotd() {
-	../cpp/qotd
-	git add ..
-	git commit -m "update qotd"
-	git push
-}
-
 function check_connectivity() {
-	ping -c 3 watsnav.github.io
+	ping -c 3 watsnav.github.io >/dev/null 2>&1
 }
-
+#uid=`id -u`
+#if [ $uid -ne 0 ]; then
+	#echo "Permission Denied"
+	#exit 1
+#fi
 check_connectivity
 if [ $? -eq 0 ]; then 
 	if [ -d /run/postgresql ]; then
-		update_qotd
+		./updateqotd.sh
 	else
-		sudo mkdir /run/postgresql
-		sudo chown -R 1000:1000 /run/postgresql
-		pg_ctl -D /mnt/disk0/pgdata start && update_qotd
+		mkdir /run/postgresql && chown -R 1000:1000 /run/postgresql
+		./updateqotd.sh -s
 	fi
 else
-	exit
+	exit 1
 fi
 
