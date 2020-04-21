@@ -9,7 +9,7 @@ function check_connectivity() {
 #fi
 if check_connectivity; then
 	if !ls /run/postgresql > /dev/null 2>&1; then
-		#echo "1"
+		echo "1"
 		if mkdir /run/postgresql >/dev/null 2>&1; then 
 			chown -R 1000:1000 /run/postgresql
 		else
@@ -20,7 +20,7 @@ if check_connectivity; then
 		fi
 		./updateqotd.sh -s
 	elif !ls /run/postgresql/*lock* > /dev/null 2>&1; then
-		#echo "2"
+		echo "2"
 		own=stat -c %u /run/postgresql >/dev/null 2>&1 
 		if [ "$own" != "1000" ]; then
 			chown -R 1000:1000 /run/postgresql
