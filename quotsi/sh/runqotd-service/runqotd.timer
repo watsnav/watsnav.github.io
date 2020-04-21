@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs runqotd daily
+
+[Timer]
+OnUnitActiveSec=1d
+Unit=runqotd.service
+
+[Install]
+WantedBy=multi-user.target

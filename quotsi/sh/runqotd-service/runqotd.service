@@ -1,5 +1,5 @@
 [Unit]
-Description=Run the daily qotd
+Description=Run qotd
 
 [Service]
 ExecStart=/home/watsnav/scripts/www/watsnav.github.io/quotsi/sh/runqotd.sh
