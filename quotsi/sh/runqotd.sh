@@ -2,11 +2,11 @@
 function check_connectivity() {
 	ping -c 3 watsnav.github.io >/dev/null 2>&1
 }
-#uid=`id -u`
-#if [ $uid -ne 0 ]; then
-	#echo "Permission Denied"
-	#exit 1
-#fi
+uid=`id -u`
+if [ $uid -ne 0 ]; then
+	echo "Permission Denied"
+	exit 1
+fi
 if check_connectivity; then
 	echo "WebService is accessible!"
 	if ls /run/postgresql/.s* > /dev/null 2>&1; then
@@ -14,7 +14,7 @@ if check_connectivity; then
 		echo "1: Database is running!"
 		pushd .
 		cd /home/watsnav/scripts/www/watsnav.github.io/quotsi/sh
-		./updateqotd.sh
+		su -c "./updateqotd.sh" watsnav
 		popd
 	elif ls /run/postgresql > /dev/null 2>&1; then
 		#database is not running but requirements are fullfilled
@@ -25,16 +25,15 @@ if check_connectivity; then
 		fi
 		pushd .
 		cd /home/watsnav/scripts/www/watsnav.github.io/quotsi/sh
-		./updateqotd.sh -s
+		su -c "./updateqotd.sh -s" watsnav
 		popd
 	else 
 		#requirements not fulfilled
 		echo -n "3: Database is not running, attempting to start.."
-		mkdir /run/postgresql >/dev/null 2>&1
-		chown -R 1000:1000 /run/postgresql
+		mkdir /run/postgresql && chown -R 1000:1000 /run/postgresql
 		pushd .
 		cd /home/watsnav/scripts/www/watsnav.github.io/quotsi/sh
-		./updateqotd.sh -s
+		su -c "./updateqotd.sh -s" watsnav
 		popd
 	fi
 else
