@@ -9,7 +9,7 @@ function check_connectivity() {
 #fi
 if check_connectivity; then
 	echo "WebService is accessible!"
-	if ls /run/postgresql/*PGSQL* > /dev/null 2>&1; then
+	if ls /run/postgresql/.s* > /dev/null 2>&1; then
 		#database is running
 		echo "1: Database is running!"
 		pushd .
@@ -23,13 +23,19 @@ if check_connectivity; then
 		if [ "$own" != "1000" ]; then
 			chown -R 1000:1000 /run/postgresql
 		fi
+		pushd .
+		cd /home/watsnav/scripts/www/watsnav.github.io/quotsi/sh
 		./updateqotd.sh -s
+		popd
 	else 
 		#requirements not fulfilled
 		echo -n "3: Database is not running, attempting to start.."
 		mkdir /run/postgresql >/dev/null 2>&1
 		chown -R 1000:1000 /run/postgresql
+		pushd .
+		cd /home/watsnav/scripts/www/watsnav.github.io/quotsi/sh
 		./updateqotd.sh -s
+		popd
 	fi
 else
 	exit 1
