@@ -1,3 +1,4 @@
+
 html {
 	height:100%;
 }
@@ -7,11 +8,22 @@ body {
 	background-color: #000000;
 	color: #FFFFFF;
 }
-#main_heading {
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 600px) {
+}
+
+#main-heading {
 	text-align: center;
 }
-#body_div {
-	height:100%;
+#watsnav-title-div {
+	height:50%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+#img-below-watsnav {
 	display:flex;
 	justify-content:center;
 	align-items:center;

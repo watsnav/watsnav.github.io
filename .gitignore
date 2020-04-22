@@ -1,0 +1,9 @@
+quotsi/db
+stale/
+#quotsi/cpp/include/stale
+*.gch
+#quotsi/cpp/src/stale
+*.o
+quotsi/cpp/obj
+quotsi/cpp/qotd
+

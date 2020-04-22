@@ -1,25 +1,29 @@
 ﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <title>Watsnav</title>
-    <link rel="stylesheet" href="welcome/css/main.css">
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<title>Watsnav</title>
+    	<link rel="stylesheet" href="welcome/css/main.css">
+	
 </head>
 <body>
-	<div id="body_div">
-		<h1 id="main_heading">
-		<pre>@        @   @@@@@@@@   @@@@@@@@@@   @@@@@@@@@  @        @   @@@@@@@@   @        @  
-@        @  @        @       @      @           @@       @  @        @  @        @  
-@        @  @        @       @      @           @ @      @  @        @  @        @  
-@        @  @        @       @      @           @  @     @  @        @  @        @  
-@        @  @        @       @      @           @   @    @  @        @  @        @  
-@   @@   @  @@@@@@@@@@       @       @@@@@@@@   @    @   @  @@@@@@@@@@  @        @  
-@  @  @  @  @        @       @               @  @     @  @  @        @   @      @   
-@ @    @ @  @        @       @               @  @      @ @  @        @    @    @    
-@@      @@  @        @       @               @  @       @@  @        @     @  @     
-@        @  @        @       @      @@@@@@@@@   @        @  @        @      @@      </pre>
-		</h1>
+	<div id="watsnav-title-div">
+		<h1 id="main-heading"></h1>
 
 	</div>
+	<div id="img-below-watsnav">
+		<img src="welcome/images/random1.png"/>
+	</div>
+	<script>
+		var width = window.innerWidth;
+		console.log(width);
+		if(width > 600) {
+  			document.getElementById("main-heading").innerHTML = "<pre>\n@        @   @@@@@@@@   @@@@@@@@@@   @@@@@@@@@  @        @   @@@@@@@@   @        @\n@        @  @        @       @      @           @@       @  @        @  @        @\n@        @  @        @       @      @           @ @      @  @        @  @        @\n@        @  @        @       @      @           @  @     @  @        @  @        @\n@        @  @        @       @      @           @   @    @  @        @  @        @\n@   @@   @  @@@@@@@@@@       @       @@@@@@@@   @    @   @  @@@@@@@@@@  @        @\n@  @  @  @  @        @       @               @  @     @  @  @        @   @      @ \n@ @    @ @  @        @       @               @  @      @ @  @        @    @    @  \n@@      @@  @        @       @               @  @       @@  @        @     @  @   \n@        @  @        @       @      @@@@@@@@@   @        @  @        @      @@    </pre>";
+		}
+		else {
+			document.getElementById("main-heading").innerHTML = "<pre>\no   o   ooo   ooooo   oooo  o   o   ooo   o   o\no   o  o   o    o    o      oo  o  o   o  o   o\no o o  ooooo    o     ooo   o o o  ooooo  o   o\noo oo  o   o    o        o  o  oo  o   o   o o \no   o  o   o    o    oooo   o   o  o   o    o  </pre>";
+		}
+	</script>
 </body>
 </html>
