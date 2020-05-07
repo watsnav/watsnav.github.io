@@ -26,5 +26,6 @@ body {
 	align-items:center;
 }
 #imgs-below-watsnav {
-	width:100%
+	width:100%;
+	height:auto;
 }
