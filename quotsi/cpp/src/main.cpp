@@ -16,5 +16,5 @@ int main() {
 	WebPage index("","","");
 	index.insertRaw(*qryResult);
 	index.saveHtml("quotsi/index.html");
-	std::cin.get();
+	//std::cin.get();
 }

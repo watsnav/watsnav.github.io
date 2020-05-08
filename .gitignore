@@ -12,4 +12,8 @@ quotsi/cpp/qotd
 .Release/
 *.exe
 *.obj
+*.tlog
 *.log
+*.pdb
+quotsi/cpp/src/vendor/pqxx/include/out
+quotsi/cpp/src/vendor/pqxx/src/out
