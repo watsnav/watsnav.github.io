@@ -7,6 +7,10 @@ stale/
 quotsi/cpp/obj
 quotsi/cpp/qotd
 .vs/
+*.vcxproj
+*.filters
+*.user
+*.sln
 x64/
 .Debug/
 .Release/
