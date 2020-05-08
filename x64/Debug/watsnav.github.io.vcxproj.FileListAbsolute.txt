@@ -1,2 +1,0 @@
-D:\prjs\www\watsnav.github.io\x64\Debug\watsnav.github.io.exe
-D:\prjs\www\watsnav.github.io\x64\Debug\watsnav.github.io.pdb
