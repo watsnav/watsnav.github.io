@@ -1,5 +1,8 @@
 ﻿net start postgresql-x64-12
-D:\prjs\www\watsnav.github.io\genquote.exe
-git add D:\prjs\www\watsnav.github.io\
+pushd
+cd D:\prjs\www\watsnav.github.io\
+.\genquote.exe
+git add .
 git commit -m "update qotd"
 git push
+popd
