@@ -7,4 +7,6 @@ stale/
 quotsi/cpp/obj
 quotsi/cpp/qotd
 .vs/
-
+.x64/
+.Debug/
+.Release/
