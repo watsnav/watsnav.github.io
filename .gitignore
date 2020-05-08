@@ -10,3 +10,4 @@ quotsi/cpp/qotd
 .x64/
 .Debug/
 .Release/
+*.exe
