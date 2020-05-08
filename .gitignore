@@ -6,4 +6,5 @@ stale/
 *.o
 quotsi/cpp/obj
 quotsi/cpp/qotd
+.vs/
 
