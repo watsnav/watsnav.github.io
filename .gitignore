@@ -7,7 +7,7 @@ stale/
 quotsi/cpp/obj
 quotsi/cpp/qotd
 .vs/
-.x64/
+x64/
 .Debug/
 .Release/
 *.exe
@@ -17,3 +17,4 @@ quotsi/cpp/qotd
 *.pdb
 quotsi/cpp/src/vendor/pqxx/include/out
 quotsi/cpp/src/vendor/pqxx/src/out
+
