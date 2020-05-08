@@ -6,7 +6,7 @@ int main() {
 	std::vector<std::string> headers;
 	headers.push_back("quote");
 	headers.push_back("name");
-	DBManager dbmgr("dbname = quotsi user = watsnav password = 1212 hostaddr = 127.0.0.1 port = 5432");
+	DBManager dbmgr("dbname = quotsi user = postgres password = 1212 hostaddr = 127.0.0.1 port = 5432");
 	dbmgr.makeConnection();
 	int retries = 0;
 	std::string *qryResult = new std::string();
@@ -15,5 +15,6 @@ int main() {
 	}
 	WebPage index("","","");
 	index.insertRaw(*qryResult);
-	index.saveHtml("../index.html");
+	index.saveHtml("quotsi/index.html");
+	std::cin.get();
 }

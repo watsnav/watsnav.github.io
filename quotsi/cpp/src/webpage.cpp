@@ -11,5 +11,6 @@ void WebPage::insertRaw(std::string& str) {
 void WebPage::saveHtml(std::string filename) {
 	std::ofstream file(filename);
 	file << htmlHeader.str() << htmlBody.str() << htmlFooter.str();
+	std::cout << htmlBody.str();
 	file.close();
 }
