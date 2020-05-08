@@ -11,3 +11,5 @@ quotsi/cpp/qotd
 .Debug/
 .Release/
 *.exe
+*.obj
+*.log
